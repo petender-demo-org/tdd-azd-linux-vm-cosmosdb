@@ -1,0 +1,90 @@
+@page
+@model LinuxVmCosmosdb.Web.Pages.IndexModel
+@{
+    ViewData["Title"] = "Logistics Dashboard";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Logistics Dashboard</h1>
+
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card text-bg-primary">
+                <div class="card-body">
+                    <h5 class="card-title">Total Shipments</h5>
+                    <p class="card-text display-6">@Model.TotalShipments</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-bg-warning">
+                <div class="card-body">
+                    <h5 class="card-title">In Transit</h5>
+                    <p class="card-text display-6">@Model.InTransitCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-bg-success">
+                <div class="card-body">
+                    <h5 class="card-title">Delivered</h5>
+                    <p class="card-text display-6">@Model.DeliveredCount</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-bg-secondary">
+                <div class="card-body">
+                    <h5 class="card-title">Pending</h5>
+                    <p class="card-text display-6">@Model.PendingCount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Recent Shipments</h3>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tracking #</th>
+                        <th>Customer</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var shipment in Model.Shipments)
+                    {
+                        <tr>
+                            <td><a asp-page="/Shipments/Details" asp-route-id="@shipment.Id">@shipment.TrackingNumber</a></td>
+                            <td>@shipment.CustomerName</td>
+                            <td>@shipment.Origin</td>
+                            <td>@shipment.Destination</td>
+                            <td>
+                                <span class="badge @Model.GetStatusBadge(shipment.Status)">@shipment.Status</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4">
+            <h3>Fleet Overview</h3>
+            <ul class="list-group">
+                @foreach (var vehicle in Model.Vehicles)
+                {
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>@vehicle.PlateNumber</strong><br/>
+                            <small>@vehicle.Type — @vehicle.DriverName</small>
+                        </div>
+                        <span class="badge @Model.GetVehicleStatusBadge(vehicle.Status)">@vehicle.Status</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

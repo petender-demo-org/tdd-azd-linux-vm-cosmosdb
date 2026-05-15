@@ -1,0 +1,6 @@
+name: tdd-azd-linux-vm-cosmosdb
+metadata:
+  template: tddazd-linux-vm-cosmosdb@1.0.0
+infra:
+  provider: bicep
+  path: ./infra

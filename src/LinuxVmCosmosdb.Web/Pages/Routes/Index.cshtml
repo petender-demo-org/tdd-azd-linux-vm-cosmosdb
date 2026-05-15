@@ -1,0 +1,45 @@
+@page
+@model LinuxVmCosmosdb.Web.Pages.Routes.IndexModel
+@{
+    ViewData["Title"] = "Routes";
+}
+
+<div class="container mt-4">
+    <h2>Delivery Routes</h2>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Distance (km)</th>
+                <th>Est. Hours</th>
+                <th>Waypoints</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var r in Model.Routes)
+            {
+                <tr>
+                    <td>@r.Name</td>
+                    <td>@r.StartCity</td>
+                    <td>@r.EndCity</td>
+                    <td>@r.DistanceKm.ToString("N0")</td>
+                    <td>@r.EstimatedHours</td>
+                    <td>@string.Join(" → ", r.Waypoints)</td>
+                    <td>
+                        @if (r.IsActive)
+                        {
+                            <span class="badge text-bg-success">Active</span>
+                        }
+                        else
+                        {
+                            <span class="badge text-bg-secondary">Inactive</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

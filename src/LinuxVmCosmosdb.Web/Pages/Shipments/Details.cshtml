@@ -1,0 +1,56 @@
+@page "{id}"
+@model LinuxVmCosmosdb.Web.Pages.Shipments.DetailsModel
+@{
+    ViewData["Title"] = $"Shipment {Model.Shipment?.TrackingNumber}";
+}
+
+<div class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-page="/Index">Dashboard</a></li>
+            <li class="breadcrumb-item"><a asp-page="/Shipments/Index">Shipments</a></li>
+            <li class="breadcrumb-item active">@Model.Shipment?.TrackingNumber</li>
+        </ol>
+    </nav>
+
+    @if (Model.Shipment is not null)
+    {
+        <h2>Shipment Details</h2>
+        <div class="card">
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-3">Tracking Number</dt>
+                    <dd class="col-sm-9">@Model.Shipment.TrackingNumber</dd>
+
+                    <dt class="col-sm-3">Status</dt>
+                    <dd class="col-sm-9"><span class="badge text-bg-warning">@Model.Shipment.Status</span></dd>
+
+                    <dt class="col-sm-3">Customer</dt>
+                    <dd class="col-sm-9">@Model.Shipment.CustomerName</dd>
+
+                    <dt class="col-sm-3">Origin</dt>
+                    <dd class="col-sm-9">@Model.Shipment.Origin</dd>
+
+                    <dt class="col-sm-3">Destination</dt>
+                    <dd class="col-sm-9">@Model.Shipment.Destination</dd>
+
+                    <dt class="col-sm-3">Weight</dt>
+                    <dd class="col-sm-9">@Model.Shipment.WeightKg kg</dd>
+
+                    <dt class="col-sm-3">Created</dt>
+                    <dd class="col-sm-9">@Model.Shipment.CreatedAt.ToString("yyyy-MM-dd HH:mm")</dd>
+
+                    @if (Model.Shipment.DeliveredAt.HasValue)
+                    {
+                        <dt class="col-sm-3">Delivered</dt>
+                        <dd class="col-sm-9">@Model.Shipment.DeliveredAt.Value.ToString("yyyy-MM-dd HH:mm")</dd>
+                    }
+                </dl>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">Shipment not found.</div>
+    }
+</div>

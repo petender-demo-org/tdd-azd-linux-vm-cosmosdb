@@ -1,0 +1,52 @@
+[
+  {
+    "id": "route-001",
+    "name": "Southern Cross",
+    "startCity": "Dallas, TX",
+    "endCity": "Atlanta, GA",
+    "distanceKm": 1260.0,
+    "estimatedHours": 13,
+    "waypoints": ["Shreveport, LA", "Jackson, MS", "Birmingham, AL"],
+    "isActive": true
+  },
+  {
+    "id": "route-002",
+    "name": "Midwest Express",
+    "startCity": "Chicago, IL",
+    "endCity": "Nashville, TN",
+    "distanceKm": 740.0,
+    "estimatedHours": 7,
+    "waypoints": ["Indianapolis, IN", "Louisville, KY"],
+    "isActive": true
+  },
+  {
+    "id": "route-003",
+    "name": "Desert Corridor",
+    "startCity": "Phoenix, AZ",
+    "endCity": "Denver, CO",
+    "distanceKm": 980.0,
+    "estimatedHours": 10,
+    "waypoints": ["Flagstaff, AZ", "Albuquerque, NM"],
+    "isActive": true
+  },
+  {
+    "id": "route-004",
+    "name": "Pacific Link",
+    "startCity": "Seattle, WA",
+    "endCity": "Portland, OR",
+    "distanceKm": 280.0,
+    "estimatedHours": 3,
+    "waypoints": ["Tacoma, WA", "Olympia, WA"],
+    "isActive": true
+  },
+  {
+    "id": "route-005",
+    "name": "Florida Shuttle",
+    "startCity": "Miami, FL",
+    "endCity": "Orlando, FL",
+    "distanceKm": 380.0,
+    "estimatedHours": 4,
+    "waypoints": ["Fort Lauderdale, FL", "West Palm Beach, FL"],
+    "isActive": true
+  }
+]
