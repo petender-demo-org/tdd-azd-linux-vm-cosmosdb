@@ -10,10 +10,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("40584d2b-8a5c-490f-a239-de444b4d0ee8")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("LinuxVmCosmosdb.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c12368114fd3f7d9b0883c2a58d01bc9f51e528")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+98a3745393a6521e093ae702fc5a93168921bd94")]
 [assembly: System.Reflection.AssemblyProductAttribute("LinuxVmCosmosdb.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LinuxVmCosmosdb.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
